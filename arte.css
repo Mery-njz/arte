@@ -1,9 +1,4 @@
 
-/* Opcional: deixa as bordas do seu desenho levemente arredondadas */
-canvas {
-  display: block;
-  border-radius: 8px;
-}
 
 html, body {
   margin: 0;
@@ -14,8 +9,3 @@ html, body {
   background-color: #000;
 }
 
-/* Faz o panorama ocupar a tela toda */
-#panorama {
-  width: 100%;
-  height: 100%;
-}
