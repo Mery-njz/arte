@@ -2,7 +2,7 @@
   width: 80%;
   margin: 40px auto;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.2); /* fundo semi-transparente */
+  background: #f7c9d8 url('hanni_pham.jpg') center/cover no-repeat fixed;
   border-radius: 12px;
   color: #fff;
 }
