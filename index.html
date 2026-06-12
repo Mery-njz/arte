@@ -9,7 +9,19 @@
 </head>
 <body>
   <img src="misa.jpg" alt="misa"/>
+<link rel="stylesheet" href="https://jsdelivr.net"/>
+<script type="text/javascript" src="https://jsdelivr.net"></script>
 
+<!-- Div onde o 360 vai rodar -->
+<div id="panorama" style="width: 600px; height: 400px;"></div>
+
+<script>
+  pannellum.viewer('panorama', {
+      "type": "equirectangular",
+      "panorama": "sua-foto-360.jpg",
+      "autoLoad": true
+  });
+</script>
   
   <script src="https://cloudflare.com"></script>
   
