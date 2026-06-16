@@ -1,4 +1,7 @@
+  <!-- Canvas para o coração -->
+  <canvas id="heartCanvas" width="600" height="600"></canvas>
 
+  <script>
     const canvas = document.getElementById('heartCanvas');
     const ctx = canvas.getContext('2d');
 
@@ -10,22 +13,18 @@
 
     function resizeCanvas() {
       const size = Math.min(window.innerWidth * 0.9, 560);
-      canvas.style.width = size + 'px';
-      canvas.style.height = size + 'px';
+      canvas.width = size;
+      canvas.height = size;
     }
 
     function heartPoint(t, scale = 14) {
       const x = 16 * Math.pow(Math.sin(t), 3);
       const y = -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
-      return {
-        x: x * scale,
-        y: y * scale
-      };
+      return { x: x * scale, y: y * scale };
     }
 
     function createParticles() {
       particles.length = 0;
-
       for (let i = 0; i < count; i++) {
         const t = (Math.PI * 2 * i) / count;
         particles.push({
@@ -69,7 +68,6 @@
         ctx.translate(x, y);
         ctx.rotate(Math.sin(time + p.offset) * 0.18);
 
-        ctx.font = `${p.size}px "Quicksand", sans-serif`;
         ctx.font = `600 ${p.size}px "Quicksand", sans-serif`;
         ctx.fillStyle = `hsl(${hueShift} 95% 62%)`;
         ctx.textAlign = 'center';
@@ -89,4 +87,4 @@
     animate();
 
     window.addEventListener('resize', resizeCanvas);
-
+  </script>
