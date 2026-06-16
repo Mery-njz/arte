@@ -33,17 +33,4 @@ body {
   border-radius: 12px;
 }
 
-/* Foto 2 invisível até o hover */
-.art-container img.hover {
-  display: block;
-  max-width: 400px; /* tamanho normal */
-  border-radius: 12px;
-  opacity: 0;
-  transition: opacity 0.6s ease;
-  position: absolute; /* fica sobre a foto 1 */
-}
 
-/* Quando passar o mouse sobre a tela */
-.art-container:hover img.hover {
-  opacity: 1;
-}
