@@ -6,17 +6,20 @@
   <link rel="stylesheet" href="jogo.css">
 </head>
 <body>
+  <div id="background"></div>
+
   <div class="game-container">
-    <h1>🌑 Bem-vindo ao pesadelo 🌑</h1>
-    <div id="game">
-      <!-- Perguntas e respostas vão aparecer aqui -->
-    </div>
-    <div id="end" class="hidden">
-      <h2 id="ending-text"></h2>
-      <button onclick="restartGame()">Recomeçar</button>
-      <a href="index.html" class="back">Voltar ao início</a>
-    </div>
+    <h2 id="question">Bem-vindo ao pesadelo... escolha seu caminho:</h2>
+    <div id="answers"></div>
   </div>
+
+  <div id="end" class="hidden">
+    <h2 id="ending-text"></h2>
+    <button onclick="restartGame()">Recomeçar</button>
+    <a href="index.html" class="back">Voltar ao início</a>
+  </div>
+
   <script src="jogo.js"></script>
 </body>
 </html>
+
