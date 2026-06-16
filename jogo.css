@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: url('sua-imagem-de-fundo.jpg') center/cover no-repeat fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Courier New", monospace;
+  color: #fff;
+}
+
+.game-container {
+  background: rgba(0,0,0,0.85);
+  border: 2px solid #ffc0cb; /* rosa clarinho */
+  border-radius: 12px;
+  padding: 20px;
+  width: 500px;
+  text-align: center;
+}
+
+button, .back {
+  margin: 10px;
+  padding: 10px 20px;
+  background: #111;
+  border: 1px solid #ffc0cb;
+  color: #ffc0cb;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+button:hover, .back:hover {
+  background: #ffc0cb;
+  color: #000;
+}
+
+.hidden {
+  display: none;
+}
