@@ -1,26 +1,26 @@
 const etapas = [
   {
-    pergunta: "Você entra em uma mansão abandonada. O que faz?",
+    pergunta: "Você acorda em um quarto escuro. O que faz?",
     respostas: [
-      { texto: "Explorar o porão", final: "ruim1" },
-      { texto: "Subir para o sótão", final: "ruim2" },
-      { texto: "Ficar na sala principal", proxima: 1 }
+      { texto: "Abrir a porta", proxima: 1, fundo: "porta.jpg" },
+      { texto: "Olhar pela janela", proxima: 1, fundo: "janela.jpg" },
+      { texto: "Ficar parado", proxima: 1, fundo: "parado.jpg" }
     ]
   },
   {
-    pergunta: "Você ouve passos atrás de você. O que faz?",
+    pergunta: "Você ouve passos se aproximando. O que faz?",
     respostas: [
-      { texto: "Corre para fora", final: "bom" },
-      { texto: "Se esconde atrás de um armário", proxima: 2 },
-      { texto: "Enfrenta o som", final: "ruim3" }
+      { texto: "Se esconder", proxima: 2, fundo: "armario.jpg" },
+      { texto: "Correr pelo corredor", proxima: 2, fundo: "corredor.jpg" },
+      { texto: "Enfrentar o som", proxima: 2, fundo: "som.jpg" }
     ]
   },
   {
     pergunta: "Uma figura aparece diante de você. O que faz?",
     respostas: [
-      { texto: "Grita por ajuda", final: "ruim4" },
-      { texto: "Tenta conversar", final: "neutro" },
-      { texto: "Ataca a figura", final: "ruim5" }
+      { texto: "Grita por ajuda", final: "Final ruim 1", fundo: "grito.jpg" },
+      { texto: "Tenta conversar", final: "Final neutro", fundo: "conversa.jpg" },
+      { texto: "Ataca a figura", final: "Final bom (?)", fundo: "ataque.jpg" }
     ]
   }
 ];
@@ -28,17 +28,16 @@ const etapas = [
 let etapaAtual = 0;
 
 function mostrarEtapa() {
-  const gameDiv = document.getElementById("game");
-  gameDiv.innerHTML = "";
   const etapa = etapas[etapaAtual];
-  const pergunta = document.createElement("h2");
-  pergunta.textContent = etapa.pergunta;
-  gameDiv.appendChild(pergunta);
+  document.getElementById("question").textContent = etapa.pergunta;
+  const answersDiv = document.getElementById("answers");
+  answersDiv.innerHTML = "";
 
   etapa.respostas.forEach(r => {
     const btn = document.createElement("button");
     btn.textContent = r.texto;
     btn.onclick = () => {
+      document.getElementById("background").style.backgroundImage = `url('${r.fundo}')`;
       if (r.final) {
         mostrarFinal(r.final);
       } else {
@@ -46,21 +45,22 @@ function mostrarEtapa() {
         mostrarEtapa();
       }
     };
-    gameDiv.appendChild(btn);
+    answersDiv.appendChild(btn);
   });
 }
 
 function mostrarFinal(final) {
-  document.getElementById("game").classList.add("hidden");
+  document.querySelector(".game-container").classList.add("hidden");
   const endDiv = document.getElementById("end");
   endDiv.classList.remove("hidden");
-  document.getElementById("ending-text").textContent = "Você chegou ao " + final;
+  document.getElementById("ending-text").textContent = final;
 }
 
 function restartGame() {
   etapaAtual = 0;
-  document.getElementById("game").classList.remove("hidden");
+  document.querySelector(".game-container").classList.remove("hidden");
   document.getElementById("end").classList.add("hidden");
+  document.getElementById("background").style.backgroundImage = "url('inicio.jpg')";
   mostrarEtapa();
 }
 
