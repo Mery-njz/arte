@@ -2,7 +2,7 @@ const etapas = [
   {
     pergunta: "Você acorda em um quarto escuro. O que faz?",
     respostas: [
-      { texto: "Abrir a porta", proxima: 1, fundo: "porta.jpg" },
+      { texto: "Abrir a porta", proxima: 1, fundo: "quarto.jpg" },
       { texto: "Olhar pela janela", proxima: 1, fundo: "janela.jpg" },
       { texto: "Ficar parado", proxima: 1, fundo: "parado.jpg" }
     ]
