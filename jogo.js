@@ -20,12 +20,18 @@ const etapas = [
     respostas: [
       { texto: "Grita por ajuda", final: "Final ruim 1", fundo: "grito.jpg" },
       { texto: "Tenta conversar", final: "Final neutro", fundo: "conversa.jpg" },
-      { texto: "Ataca a figura", final: "Final bom (?)", fundo: "ataque.jpg" }
+      { texto: "Ataca a figura", final: "Final bom", fundo: "ataque.jpg" }
     ]
   }
 ];
 
 let etapaAtual = 0;
+
+function startGame() {
+  document.getElementById("start-screen").classList.add("hidden");
+  document.getElementById("game-container").classList.remove("hidden");
+  mostrarEtapa();
+}
 
 function mostrarEtapa() {
   const etapa = etapas[etapaAtual];
@@ -50,7 +56,7 @@ function mostrarEtapa() {
 }
 
 function mostrarFinal(final) {
-  document.querySelector(".game-container").classList.add("hidden");
+  document.getElementById("game-container").classList.add("hidden");
   const endDiv = document.getElementById("end");
   endDiv.classList.remove("hidden");
   document.getElementById("ending-text").textContent = final;
@@ -58,10 +64,8 @@ function mostrarFinal(final) {
 
 function restartGame() {
   etapaAtual = 0;
-  document.querySelector(".game-container").classList.remove("hidden");
+  document.getElementById("game-container").classList.add("hidden");
   document.getElementById("end").classList.add("hidden");
+  document.getElementById("start-screen").classList.remove("hidden");
   document.getElementById("background").style.backgroundImage = "url('inicio.jpg')";
-  mostrarEtapa();
 }
-
-mostrarEtapa();
