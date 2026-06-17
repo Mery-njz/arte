@@ -8,11 +8,20 @@
 <body>
   <div id="background"></div>
 
-  <div class="game-container">
-    <h2 id="question">Bem-vindo ao pesadelo... escolha seu caminho:</h2>
+  <!-- Tela inicial -->
+  <div id="start-screen">
+    <h1>🌑 Bem-vindo ao pesadelo 🌑</h1>
+    <p>Prepare-se para escolher seu destino...</p>
+    <button onclick="startGame()">Começar</button>
+  </div>
+
+  <!-- Container do jogo -->
+  <div class="game-container hidden" id="game-container">
+    <h2 id="question"></h2>
     <div id="answers"></div>
   </div>
 
+  <!-- Tela final -->
   <div id="end" class="hidden">
     <h2 id="ending-text"></h2>
     <button onclick="restartGame()">Recomeçar</button>
@@ -22,4 +31,3 @@
   <script src="jogo.js"></script>
 </body>
 </html>
-
