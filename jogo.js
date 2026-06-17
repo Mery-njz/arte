@@ -18,7 +18,7 @@ const etapas = [
   {
     pergunta: "Uma figura aparece diante de você. O que faz?",
     respostas: [
-      { texto: "Grita por ajuda", final: "Final ruim 1", fundo: "grito.jpg" },
+      { texto: "Grita por ajuda", final: "Final ruim ", fundo: "grito.jpg" },
       { texto: "Tenta conversar", final: "Final ???", fundo: "conversa.jpg" },
       { texto: "Ataca a figura", final: "Final bom", fundo: "ataque.jpg" }
     ]
