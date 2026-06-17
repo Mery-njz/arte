@@ -4,6 +4,9 @@ body {
   background: #000;
   color: #fff;
   font-family: "Courier New", monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #background {
@@ -14,13 +17,12 @@ body {
   z-index: -1;
 }
 
-.game-container {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+.game-container, #start-screen, #end {
   background: rgba(0,0,0,0.85);
-  border-top: 2px solid #ffc0cb;
+  border: 2px solid #ffc0cb;
+  border-radius: 12px;
   padding: 20px;
+  width: 500px;
   text-align: center;
 }
 
