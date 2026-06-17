@@ -1,3 +1,12 @@
+document.getElementById("start-btn").addEventListener("click", startGame);
+
+function startGame() {
+  document.getElementById("start-screen").classList.add("hidden");
+  document.getElementById("game-container").classList.remove("hidden");
+  etapaAtual = 0;
+  mostrarEtapa();
+}
+
 const etapas = [
   {
     pergunta: "Você acorda em um quarto escuro. O que faz?",
