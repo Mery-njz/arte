@@ -1,12 +1,3 @@
-document.getElementById("start-btn").addEventListener("click", startGame);
-
-function startGame() {
-  document.getElementById("start-screen").classList.add("hidden");
-  document.getElementById("game-container").classList.remove("hidden");
-  etapaAtual = 0;
-  mostrarEtapa();
-}
-
 const etapas = [
   {
     pergunta: "Você acorda em um quarto escuro. O que faz?",
@@ -39,6 +30,7 @@ let etapaAtual = 0;
 function startGame() {
   document.getElementById("start-screen").classList.add("hidden");
   document.getElementById("game-container").classList.remove("hidden");
+  etapaAtual = 0;
   mostrarEtapa();
 }
 
@@ -78,3 +70,6 @@ function restartGame() {
   document.getElementById("start-screen").classList.remove("hidden");
   document.getElementById("background").style.backgroundImage = "url('inicio.jpg')";
 }
+
+// ⚠️ Importante: o listener vem no final, depois da função existir
+document.getElementById("start-btn").addEventListener("click", startGame);
