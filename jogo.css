@@ -13,7 +13,8 @@ body {
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: url('inicio.jpg') center/cover no-repeat;
+  background: url('sua-imagem.jpg') center/contain no-repeat;
+  background-color: #000; /* cor de fundo para preencher espaços */
   z-index: -1;
 }
 
