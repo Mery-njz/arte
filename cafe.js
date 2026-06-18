@@ -10,7 +10,7 @@ const etapas = [
   {
     pergunta: "Enquanto espera, você escolhe onde sentar:",
     respostas: [
-      { texto: "Perto da janela com vista 🌤", proxima: 2, fundo: "janela.jpg" },
+      { texto: "Perto da janela com vista 🌤", proxima: 2, fundo: "janelaa.jpg" },
       { texto: "Num sofá aconchegante 🛋", proxima: 2, fundo: "sofa.jpg" },
       { texto: "Na varanda com plantas 🌿", proxima: 2, fundo: "varanda.jpg" }
     ]
