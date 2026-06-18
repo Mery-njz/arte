@@ -12,8 +12,9 @@ html, body {
     width: 400px;
     margin: auto;
     padding: 20px;
+    aling-items: center;
     background: #000;
-    border: 2px solid #ffc0cb; /* rosa clarinho */
+    border: 2px solid #ffc0cb;
     border-radius: 12px;
     text-align: center;
     color: #fff;
