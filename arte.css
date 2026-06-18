@@ -24,6 +24,7 @@ html, body {
     border: none;
     border-top: 1px solid #ffc0cb;
     margin: 10px 0;
+    aling-items: center;
 }
 
 .arrows {
