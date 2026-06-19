@@ -2,9 +2,9 @@ const etapas = [
   {
     pergunta: "Você entra no café e sente o aroma delicioso. O que pede primeiro?",
     respostas: [
-      { texto: "Um cappuccino quentinho ☕", proxima: 1, fundo: "cappuccino.jpg" },
-      { texto: "Um chá de camomila 🌼", proxima: 1, fundo: "cha.jpg" },
-      { texto: "Um chocolate quente 🍫", proxima: 1, fundo: "chocolate.jpg" }
+      { texto: "Um cappuccino quentinho ", proxima: 1, fundo: "cappuccino.jpg" },
+      { texto: "Um chá de camomila ", proxima: 1, fundo: "cha.jpg" },
+      { texto: "Um chocolate quente ", proxima: 1, fundo: "chocolate.jpg" }
     ]
   },
   {
@@ -18,9 +18,9 @@ const etapas = [
   {
     pergunta: "O atendente sorri e pergunta: deseja algo para acompanhar?",
     respostas: [
-      { texto: "Um bolo de morango 🍓", final: "Final doce: você saboreia um bolo delicioso e sente paz.", fundo: "bolo.jpg" },
-      { texto: "Cookies quentinhos 🍪", final: "Final aconchegante: você aproveita cookies e conversa com amigos.", fundo: "cookies.jpg" },
-      { texto: "Uma fatia de torta de maçã 🍏", final: "Final relaxante: você saboreia a torta e observa o pôr do sol.", fundo: "torta.jpg" }
+      { texto: "Um bolo de morango ", final: "Final doce: você saboreia um bolo delicioso e sente paz.", fundo: "bolo.jpg" },
+      { texto: "Cookies quentinhos ", final: "Final aconchegante: você aproveita cookies e conversa com amigos.", fundo: "cookies.jpg" },
+      { texto: "Uma fatia de torta de maçã ", final: "Final relaxante: você saboreia a torta e observa o pôr do sol.", fundo: "torta.jpg" }
     ]
   }
 ];
