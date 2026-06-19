@@ -18,9 +18,9 @@ const etapas = [
   {
     pergunta: "Uma figura aparece diante de você. O que faz?",
     respostas: [
-      { texto: "Grita por ajuda", final: "⠀ ⠀ ⠀ ⠀ ⠀Final ruim ⠀ ⠀ ⠀ ⠀ ⠀⠀ ⠀ ⠀ ⠀ ⠀⠀ ⠀ ⠀ ⠀ ⠀⠀ ⠀ ⠀ ⠀ ⠀⠀ ⠀ ⠀ ⠀ ⠀ninguem veio te ajudar...", fundo: "grito.jpg" },
+      { texto: "Grita por ajuda", final: "⠀ ⠀ ⠀ ⠀ ⠀Final ruim ⠀ ⠀ ⠀ ⠀ ⠀⠀ ⠀ ⠀ ninguem veio te ajudar...", fundo: "grito.jpg" },
       { texto: "Tenta conversar", final: "Final ???", fundo: "conversar.jpg" },
-      { texto: "Ataca a figura", final: "⠀ ⠀ ⠀ ⠀ ⠀Final bom ⠀ ⠀ ⠀ ⠀ ⠀⠀ ⠀ ⠀ ⠀ ⠀⠀ ⠀ ⠀ ⠀ ⠀⠀ ⠀ ⠀ ⠀ ⠀⠀ ⠀ ⠀ ⠀ ⠀ voce matou a figura!", fundo: "ataque.jpg" }
+      { texto: "Ataca a figura", final: "⠀ ⠀ ⠀ ⠀ ⠀Final bom ⠀ ⠀ ⠀ ⠀ ⠀⠀ ⠀ ⠀ ⠀ voce matou a figura!", fundo: "ataque.jpg" }
     ]
   }
 ];
