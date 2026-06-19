@@ -2,17 +2,17 @@ const etapas = [
   {
     pergunta: "Você entra no café e sente o aroma delicioso. O que pede primeiro?",
     respostas: [
-      { texto: "Um cappuccino quentinho ", proxima: 1, fundo: "cappuccino.jpg" },
-      { texto: "Um chá de camomila ", proxima: 1, fundo: "cha.jpg" },
-      { texto: "Um chocolate quente ", proxima: 1, fundo: "chocolate.jpg" }
+      { texto: "Um cappuccino quentinho", proxima: 1, fundo: "cappuccino.jpg" },
+      { texto: "Um chá de camomila", proxima: 1, fundo: "cha.jpg" },
+      { texto: "Um chocolate quente", proxima: 1, fundo: "chocolate.jpg" }
     ]
   },
   {
     pergunta: "Enquanto espera, você escolhe onde sentar:",
     respostas: [
-      { texto: "Perto da janela com vista 🌤", proxima: 2, fundo: "jane.jpg" },
-      { texto: "Num sofá aconchegante 🛋", proxima: 2, fundo: "sofa.jpg" },
-      { texto: "Na varanda com plantas 🌿", proxima: 2, fundo: "varanda.jpg" }
+      { texto: "Perto da janela com vista", proxima: 2, fundo: "jane.jpg" },
+      { texto: "Num sofá aconchegante", proxima: 2, fundo: "sofa.jpg" },
+      { texto: "Na varanda com plantas", proxima: 2, fundo: "varanda.jpg" }
     ]
   },
   {
