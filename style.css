@@ -1,12 +1,9 @@
 :root {
-    --egyptian-blue: #7CA9FF;   /* azul clarinho */
-    --truesky-gloxym: #BFD6FF;  /* azul suave */
     --pink-quartz: #FFD6F6;     /* rosa clarinho */
-    --calcareous-sinter: #F7FBFF; 
-    --blue-titmouse: #A3C4FF;   /* azul pastel */
-    --spring-heat: #FFF9F9;     /* fundo quase branco com tom rosado */
-    --polka-dot-blue: #D6E6FF;  /* azul bem leve */
     --pink-border: #FFCCE5;     /* rosa suave para bordas */
+    --spring-heat: #FFF9F9;     /* fundo quase branco com tom rosado */
+    --calcareous-sinter: #FFFDFE; /* folhas quase brancas */
+    --line-pink: #FFCFE9;       /* linhas rosadas suaves */
 }
 
 * {
@@ -18,8 +15,8 @@
 body {
     background-color: var(--spring-heat);
     background-image: 
-        radial-gradient(var(--polka-dot-blue) 15%, transparent 16%),
-        radial-gradient(var(--polka-dot-blue) 15%, transparent 16%);
+        radial-gradient(var(--pink-border) 15%, transparent 16%),
+        radial-gradient(var(--pink-border) 15%, transparent 16%);
     background-size: 60px 60px;
     background-position: 0 0, 30px 30px;
     
@@ -91,7 +88,7 @@ body {
 /* Folhas do diário */
 .folha-pautada {
     background-color: var(--calcareous-sinter); 
-    background-image: linear-gradient(var(--truesky-gloxym) 1px, transparent 1px); 
+    background-image: linear-gradient(var(--line-pink) 1px, transparent 1px); 
     background-size: 100% 30px;
     line-height: 30px;
     padding-top: 45px;
@@ -99,7 +96,7 @@ body {
 
 .folha-pautada .data {
     display: block;
-    color: var(--blue-titmouse);
+    color: var(--pink-border);
     font-weight: bold;
     margin-bottom: 15px;
 }
@@ -117,7 +114,7 @@ body {
 }
 
 .folha-pautada textarea::placeholder {
-    color: rgba(163, 196, 255, 0.6);
+    color: rgba(255, 180, 210, 0.6); /* rosa suave */
 }
 
 .folha-pautada textarea:focus {
