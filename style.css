@@ -88,18 +88,26 @@ body {
 
 /* Folhas do diário */
 .folha-pautada {
-    background-color: var(--calcareous-sinter); 
-    background-image: linear-gradient(var(--line-pink) 1px, transparent 1px); 
-    background-size: 100% 30px;
+    background-color: #FFF8DC; /* tom amarelado tipo papel antigo */
+    background-image: none;    /* remove as linhas */
     line-height: 30px;
-    padding-top: 45px;
+    padding: 45px 30px;
+    border-radius: 10px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05); /* leve textura */
 }
 
 .folha-pautada .data {
     display: block;
-    color: var(--pink-border);
+    color: #A67C52; /* marrom suave para combinar com papel */
     font-weight: bold;
     margin-bottom: 15px;
+}
+
+.texto-diario {
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    color: #333;
+    line-height: 28px;
 }
 
 .folha-pautada textarea {
