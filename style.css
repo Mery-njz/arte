@@ -152,7 +152,7 @@ body {
 
 /* Container da folha que vai virar o scrapbook */
 .folha-scrapbook {
-    background-color: var(--pink-quartz) !important;
+    background-color: var(--calcareous-sinter) !important;
     position: absolute !important; /* Força ela a ficar presa no topo absoluto da face */
     top: 0;
     left: 0;
