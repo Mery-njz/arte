@@ -251,9 +251,13 @@ body {
 }
 
 .texto-diario-container {
-    padding: 35px 25px;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    width: 180px; 
     font-family: 'Courier New', Courier, monospace;
     color: #222;
+    z-index: 5; 
 }
 
 .texto-diario-container .data {
