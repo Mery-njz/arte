@@ -1,13 +1,12 @@
 :root {
-    --pink-quartz: #FFD6F6;     /* rosa clarinho */
-    --pink-border: #FFCCE5;     /* rosa suave para bordas */
-    --spring-heat: #FFF9F9;     /* fundo quase branco com tom rosado */
-    --calcareous-sinter: #FFF8DC; /* folhas amareladas */
-    --line-pink: #FFCFE9;        /* linhas rosadas suaves */
-    --polka-dot-blue: #BFD6FF;  /* azul clarinho para bolinhas */
+    --pink-quartz: #FFD6F6;
+    --pink-border: #FFCCE5;
+    --spring-heat: #FFF9F9;
+    --calcareous-sinter: #FFF8DC;
+    --polka-dot-blue: #BFD6FF;
 }
 
-/* Fundo com bolinhas azuis corrigido */
+/* Fundo corrigido com as bolinhas azuis */
 body {
     background-color: var(--spring-heat);
     background-image: 
@@ -31,19 +30,23 @@ body {
     justify-content: center;
     width: 100%;
     height: 100%;
+    perspective: 2000px; /* Cria o efeito 3D profundo */
 }
 
-/* Ajuste no caderno para o efeito de arrastar */
+/* O caderno ocupa o lado direito do centro */
 .caderno {
     position: relative;
-    width: 400px;
-    height: 550px;
-    perspective: 1500px;
-    cursor: grab; /* Mostra a mãozinha de arrastar */
+    width: 380px;
+    height: 520px;
+    transform-style: preserve-3d;
+    cursor: grab;
+    /* Move o caderno ligeiramente para a direita para compensar o livro aberto */
+    transform: translateX(50%); 
+    transition: transform 0.5s;
 }
 
 .caderno:active {
-    cursor: grabbing; /* Mãozinha fechada ao arrastar */
+    cursor: grabbing;
 }
 
 .pagina {
@@ -53,9 +56,9 @@ body {
     top: 0;
     left: 0;
     transform-style: preserve-3d;
-    transform-origin: left center;
-    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-    user-select: none; /* Impede que o usuário selecione o texto sem querer ao arrastar */
+    transform-origin: left center; /* O eixo de dobra é o meio do livro */
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    user-select: none;
 }
 
 .face {
@@ -63,25 +66,37 @@ body {
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    padding: 30px;
-    border-radius: 0 15px 15px 0;
-    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1); 
+    padding: 35px 25px;
     box-sizing: border-box;
+    box-shadow: inset -3px 0 5px rgba(0,0,0,0.05), 3px 3px 10px rgba(0,0,0,0.1);
 }
 
+/* Lado direito (Frente) */
+.face.frente {
+    border-radius: 0 15px 15px 0;
+}
+
+/* Lado esquerdo (Verso) após virar */
 .face.verso {
     transform: rotateY(180deg);
     border-radius: 15px 0 0 15px;
+    box-shadow: inset 3px 0 5px rgba(0,0,0,0.05), -3px 3px 10px rgba(0,0,0,0.1);
 }
 
+/* Estilização das Capas */
 .capa-imagem {
+    background-color: var(--pink-quartz);
+    border: 3px solid var(--pink-border);
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    border: 3px solid var(--pink-border);
-    border-radius: 0 15px 15px 0;
-    background-color: var(--pink-quartz);
+}
+
+.capa-foto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .contra-capa {
@@ -89,15 +104,10 @@ body {
     border: 2px solid var(--pink-border);
 }
 
+/* Estilização das Folhas Internas */
 .folha-pautada {
     background-color: var(--calcareous-sinter);
-    border: 1px solid #e0d9b8;
-    padding: 45px 30px;
-    border-radius: 0 15px 15px 0;
-}
-
-.face.verso.folha-pautada {
-    border-radius: 15px 0 0 15px;
+    border: 1px solid #e5dfc5;
 }
 
 .folha-pautada .data {
@@ -105,6 +115,7 @@ body {
     color: #A67C52;
     font-weight: bold;
     margin-bottom: 15px;
+    font-size: 14px;
 }
 
 .folha-pautada textarea {
@@ -114,23 +125,17 @@ body {
     border: none;
     resize: none;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 18px;
-    line-height: 30px;
+    font-size: 16px;
+    line-height: 28px;
     color: #222;
-    pointer-events: none; /* Garante que o clique/arrastar funcione mesmo em cima do texto */
+    pointer-events: none; /* Deixa o arrastar livre sobre o texto */
 }
 
 .folha-pautada textarea:focus {
     outline: none;
 }
 
+/* Classe aplicada via JS quando a página é jogada para a esquerda */
 .pagina.virada {
     transform: rotateY(-180deg);
-}
-
-.capa-foto {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;   
-    object-position: center; 
 }
