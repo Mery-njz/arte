@@ -149,3 +149,68 @@ body {
 .pagina.virada {
     transform: rotateY(-180deg);
 }
+
+/* Container da folha que vai virar o scrapbook */
+.folha-scrapbook {
+    background-color: var(--pink-quartz) !important; /* Cor de fundo da página */
+    position: relative;
+    overflow: visible; /* Permite que os adesivos passem um pouquinho da borda */
+}
+
+/* Regra geral para todos os itens soltos no scrapbook */
+.scrap-item {
+    position: absolute;
+    box-sizing: border-box;
+}
+
+/* 1. Estilização da Foto Polaroid */
+.polaroid {
+    background: #ffffff;
+    padding: 8px 8px 20px 8px; /* Borda branca maior embaixo para a legenda */
+    box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.15);
+    top: 40px;
+    left: 30px;
+    width: 140px;
+    transform: rotate(-6deg); /* Dá a giradinha charmosa */
+    z-index: 2;
+}
+.polaroid img {
+    width: 100%;
+    display: block;
+}
+.legenda-polaroid {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 11px;
+    text-align: center;
+    margin: 8px 0 0 0;
+    color: #555;
+}
+
+/* 2. Estilização da outra foto solta */
+.foto-recortada {
+    top: 160px;
+    right: 25px;
+    width: 130px;
+    border: 4px solid #fff; /* Bordinha branca simples */
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.12);
+    transform: rotate(4deg);
+    z-index: 1;
+}
+
+/* 3. Estilização dos adesivos (Stickers) */
+.sticker-borboleta {
+    top: 20px;
+    right: 40px;
+    width: 45px;
+    transform: rotate(-15deg);
+    z-index: 3; /* z-index maior para ficar por cima de tudo */
+}
+
+.fita-tape {
+    top: 25px;
+    left: 70px;
+    width: 60px;
+    opacity: 0.85; /* Leve transparência para parecer fita real */
+    transform: rotate(-5deg);
+    z-index: 3; /* Fica por cima da foto simulando que prendeu ela */
+}
