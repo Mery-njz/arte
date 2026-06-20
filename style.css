@@ -2,16 +2,12 @@
     --pink-quartz: #FFD6F6;     /* rosa clarinho */
     --pink-border: #FFCCE5;     /* rosa suave para bordas */
     --spring-heat: #FFF9F9;     /* fundo quase branco com tom rosado */
-    --calcareous-sinter: #FFFDFE; /* folhas quase brancas */
-    --line-pink: #FFCFE9;       /* linhas rosadas suaves */
+    --calcareous-sinter: #FFF8DC; /* folhas amareladas */
+    --line-pink: #FFCFE9;       /* linhas rosadas suaves (se quiser usar) */
+    --polka-dot-blue: #BFD6FF;  /* azul clarinho para bolinhas */
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
+/* Fundo com bolinhas azuis */
 body {
     background-color: var(--spring-heat);
     background-image: 
@@ -88,8 +84,8 @@ body {
 
 /* Folhas do diário */
 .folha-pautada {
-    background-color: #FFF8DC; /* tom amarelado tipo papel antigo */
-    background-image: none;    /* remove as linhas */
+    background-color: var(--calcareous-sinter); /* papel amarelado */
+    background-image: none; /* sem linhas */
     line-height: 30px;
     padding: 45px 30px;
     border-radius: 10px;
@@ -98,7 +94,7 @@ body {
 
 .folha-pautada .data {
     display: block;
-    color: #A67C52; /* marrom suave para combinar com papel */
+    color: #A67C52; /* marrom suave */
     font-weight: bold;
     margin-bottom: 15px;
 }
