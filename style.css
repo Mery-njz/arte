@@ -150,7 +150,7 @@ body {
     transform: rotateY(-180deg);
 }
 
-/* Container da folha que vai virar o scrapbook */
+
 .folha-scrapbook {
     background-color: var(--calcareous-sinter) !important;
     position: absolute !important; /* Força ela a ficar presa no topo absoluto da face */
@@ -163,21 +163,21 @@ body {
     border-radius: 15px 0 0 15px; /* Deixa as bordinhas esquerdas arredondadas igual ao verso do caderno */
 }
 
-/* Regra geral para todos os itens soltos no scrapbook */
+
 .scrap-item {
     position: absolute;
     box-sizing: border-box;
 }
 
-/* 1. Estilização da Foto Polaroid */
+
 .polaroid {
     background: #ffffff;
-    padding: 8px 8px 20px 8px; /* Borda branca maior embaixo para a legenda */
+    padding: 8px 8px 20px 8px;
     box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.15);
     top: 40px;
     left: 30px;
     width: 140px;
-    transform: rotate(-6deg); /* Dá a giradinha charmosa */
+    transform: rotate(-6deg); 
     z-index: 2;
 }
 .polaroid img {
@@ -192,31 +192,105 @@ body {
     color: #555;
 }
 
-/* 2. Estilização da outra foto solta */
+
 .foto-recortada {
     top: 160px;
     right: 25px;
     width: 130px;
-    border: 4px solid #fff; /* Bordinha branca simples */
+    border: 4px solid #fff; 
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.12);
     transform: rotate(4deg);
     z-index: 1;
 }
 
-/* 3. Estilização dos adesivos (Stickers) */
+
 .sticker-borboleta {
     top: 20px;
     right: 40px;
     width: 45px;
     transform: rotate(-15deg);
-    z-index: 3; /* z-index maior para ficar por cima de tudo */
+    z-index: 3; 
 }
 
 .fita-tape {
     top: 25px;
     left: 70px;
     width: 60px;
-    opacity: 0.85; /* Leve transparência para parecer fita real */
+    opacity: 0.85; 
     transform: rotate(-5deg);
-    z-index: 3; /* Fica por cima da foto simulando que prendeu ela */
+    z-index: 3; 
 }
+
+
+/* Nova folha do lado direito */
+.folha-scrapbook-direita {
+    background-color: var(--calcareous-sinter) !important;
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0 !important;
+    overflow: visible; 
+    border-radius: 0 15px 15px 0; 
+    border: 1px solid #e5dfc5;
+    border-left: none;
+}
+
+
+.texto-diario-container {
+    padding: 35px 25px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #222;
+}
+.texto-diario-container .data {
+    display: block;
+    color: #A67C52;
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+.texto-puro {
+    font-size: 16px;
+    line-height: 28px;
+    margin: 0;
+}
+
+/* 4 fotos */
+
+.direita-foto1 {
+    top: 150px;
+    left: 30px;
+    width: 110px;
+    transform: rotate(-4deg);
+    z-index: 2;
+}
+
+.direita-foto2 {
+    top: 40px;
+    right: 30px;
+    width: 120px;
+    border: 4px solid #fff;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.12);
+    transform: rotate(6deg);
+    z-index: 1;
+}
+
+.direita-foto3 {
+    top: 280px;
+    right: 40px;
+    width: 100px;
+    border: 4px solid #fff;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.12);
+    transform: rotate(-8deg);
+    z-index: 2;
+}
+
+.direita-foto4 {
+    top: 320px;
+    left: 40px;
+    width: 115px;
+    transform: rotate(5deg);
+    z-index: 1;
+}
+
