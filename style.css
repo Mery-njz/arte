@@ -136,6 +136,13 @@ body {
 }
 
 .nav-btn:hover {
-    background-color: var(--blue-titmouse);
+    background-color: var(--pink-titmouse);
     transform: scale(1.1);
+}
+
+.capa-foto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* Faz a imagem preencher sem distorcer */
+    border-radius: 0 15px 15px 0; /* arredonda igual às páginas */
 }
