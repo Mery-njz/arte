@@ -1,14 +1,14 @@
 :root {
-    --pink-quartz: #FFD6F6;
-    --pink-border: #FFCCE5;
-    --spring-heat: #FFF9F9;
-    --calcareous-sinter: #FFF8DC;
-    --polka-dot-blue: #BFD6FF;
-}
+    --pink-quartz: #FFD6F6;    
+    --pink-border: #FFCCE5;     
+    --spring-heat: #FFF9F9;     
+    --calcareous-sinter: #FFF8DC; 
+    --line-pink: #FFCFE9;        
+    --polka-dot-blue: #7CA9FF;  
 
-/* Fundo corrigido com as bolinhas azuis */
+/* Fundo com bolinhas azuis sobre rosa */
 body {
-    background-color: var(--spring-heat);
+    background-color: var(--pink-quartz); /* fundo rosa clarinho */
     background-image: 
         radial-gradient(var(--polka-dot-blue) 15%, transparent 16%),
         radial-gradient(var(--polka-dot-blue) 15%, transparent 16%);
@@ -23,6 +23,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow: hidden;
 }
+
 
 .diario-container {
     display: flex;
