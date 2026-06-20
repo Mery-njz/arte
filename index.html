@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>☽｡! art .’ 3</title>
     <link rel="stylesheet" href="arte.css">
-     <link rel="icon" type="image/x-icon" href="Chiikawa.png">
+    <link rel="icon" type="image/x-icon" href="Chiikawa.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,12 +14,13 @@
         <button id="btn-voltar" class="nav-btn">&larr;</button>
 
         <div id="caderno" class="caderno">
-            
+            <!-- Capa frontal -->
             <div class="pagina capa-frontal" style="z-index: 10;">
                 <div class="face frente capa-imagem"></div>
                 <div class="face verso contra-capa"></div>
             </div>
 
+            <!-- Páginas -->
             <div class="pagina" style="z-index: 9;">
                 <div class="face frente folha-pautada">
                     <span class="data">Data: ___/___/_____</span>
@@ -42,17 +43,18 @@
                 </div>
             </div>
 
+            <!-- Capa traseira -->
             <div class="pagina capa-traseira" style="z-index: 7;">
                 <div class="face frente contra-capa"></div>
                 <div class="face verso capa-imagem"></div>
             </div>
-
         </div>
 
         <button id="btn-avancar" class="nav-btn">&rarr;</button>
     </div>
 
     <script src="arte.js"></script>
+
     <div class="container">
         <h1>...</h1>
         <hr>
@@ -63,9 +65,10 @@
         </div>
     </div>
 
-    <div class="art-container">
-        .
-    </div>
+    <div class="art-container">.</div>
+
+    <!-- Canvas para o coração -->
+    <canvas id="heartCanvas" width="600" height="600"></canvas>
+    <script src="heart.js"></script>
 </body>
 </html>
-
