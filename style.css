@@ -3,20 +3,21 @@
     --pink-border: #FFCCE5;     /* rosa suave para bordas */
     --spring-heat: #FFF9F9;     /* fundo quase branco com tom rosado */
     --calcareous-sinter: #FFF8DC; /* folhas amareladas */
-    --line-pink: #FFCFE9;       /* linhas rosadas suaves (se quiser usar) */
+    --line-pink: #FFCFE9;        /* linhas rosadas suaves */
     --polka-dot-blue: #BFD6FF;  /* azul clarinho para bolinhas */
 }
 
-/* Fundo com bolinhas azuis */
+/* Fundo com bolinhas azuis corrigido */
 body {
     background-color: var(--spring-heat);
     background-image: 
         radial-gradient(var(--polka-dot-blue) 15%, transparent 16%),
         radial-gradient(var(--polka-dot-blue) 15%, transparent 16%);
-    background-size: 60px 60px;
-    background-position: 0 0, 30px 30px;
+    background-size: 40px 40px;
+    background-position: 0 0, 20px 20px;
     
     height: 100vh;
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,18 +28,22 @@ body {
 .diario-container {
     display: flex;
     align-items: center;
-    gap: 20px;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 
-/* Bordas do caderno */
+/* Ajuste no caderno para o efeito de arrastar */
 .caderno {
     position: relative;
     width: 400px;
     height: 550px;
     perspective: 1500px;
-    border: 4px solid var(--pink-border); /* borda rosa */
-    border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    cursor: grab; /* Mostra a mãozinha de arrastar */
+}
+
+.caderno:active {
+    cursor: grabbing; /* Mãozinha fechada ao arrastar */
 }
 
 .pagina {
@@ -49,7 +54,8 @@ body {
     left: 0;
     transform-style: preserve-3d;
     transform-origin: left center;
-    transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    user-select: none; /* Impede que o usuário selecione o texto sem querer ao arrastar */
 }
 
 .face {
@@ -59,7 +65,8 @@ body {
     backface-visibility: hidden;
     padding: 30px;
     border-radius: 0 15px 15px 0;
-    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.15); 
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1); 
+    box-sizing: border-box;
 }
 
 .face.verso {
@@ -71,39 +78,33 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* evita que a imagem saia da borda */
+    overflow: hidden;
     border: 3px solid var(--pink-border);
     border-radius: 0 15px 15px 0;
+    background-color: var(--pink-quartz);
 }
 
-/* Contra-capa */
 .contra-capa {
-    background-color: var(--pink-quartz); /* rosa clarinho */
+    background-color: var(--pink-quartz);
     border: 2px solid var(--pink-border);
 }
 
-/* Folhas do diário */
 .folha-pautada {
-    background-color: var(--calcareous-sinter); /* papel amarelado */
-    background-image: none; /* sem linhas */
-    line-height: 30px;
+    background-color: var(--calcareous-sinter);
+    border: 1px solid #e0d9b8;
     padding: 45px 30px;
-    border-radius: 10px;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.05); /* leve textura */
+    border-radius: 0 15px 15px 0;
+}
+
+.face.verso.folha-pautada {
+    border-radius: 15px 0 0 15px;
 }
 
 .folha-pautada .data {
     display: block;
-    color: #A67C52; /* marrom suave */
+    color: #A67C52;
     font-weight: bold;
     margin-bottom: 15px;
-}
-
-.texto-diario {
-    font-family: 'Georgia', serif;
-    font-size: 18px;
-    color: #333;
-    line-height: 28px;
 }
 
 .folha-pautada textarea {
@@ -116,10 +117,7 @@ body {
     font-size: 18px;
     line-height: 30px;
     color: #222;
-}
-
-.folha-pautada textarea::placeholder {
-    color: rgba(255, 180, 210, 0.6); /* rosa suave */
+    pointer-events: none; /* Garante que o clique/arrastar funcione mesmo em cima do texto */
 }
 
 .folha-pautada textarea:focus {
@@ -130,30 +128,9 @@ body {
     transform: rotateY(-180deg);
 }
 
-/* Botões laterais */
-.nav-btn {
-    background-color: var(--pink-quartz); /* rosa clarinho */
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    z-index: 20;
-}
-
-.nav-btn:hover {
-    background-color: var(--pink-border); /* rosa suave no hover */
-    transform: scale(1.1);
-}
-
 .capa-foto {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;   
     object-position: center; 
-    border-radius: 0 15px 15px 0;
 }
