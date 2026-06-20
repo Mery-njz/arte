@@ -4,23 +4,34 @@ const paginas = document.querySelectorAll(".pagina");
 let paginaAtual = 0;
 const totalPaginas = paginas.length;
 
-letstartX = 0;
+let startX = 0;
 let isDragging = false;
 
 function atualizarDiario() {
     paginas.forEach((pagina, index) => {
         if (index < paginaAtual) {
+            // Páginas que já viraram vão para a esquerda
             pagina.classList.add("virada");
             pagina.style.zIndex = 10 + index;
         } else {
+            // Páginas que estão na direita
             pagina.classList.remove("virada");
             pagina.style.zIndex = totalPaginas - index;
         }
     });
+
+    // Ajusta o alinhamento do caderno dependendo se está na capa ou aberto
+    if (paginaAtual === 0) {
+        caderno.style.transform = "translateX(50%)"; // Centraliza a capa fechada
+    } else if (paginaAtual === totalPaginas) {
+        caderno.style.transform = "translateX(-50%)"; // Centraliza a contracapa fechada
+    } else {
+        caderno.style.transform = "translateX(0%)"; // Abre centralizado mostrando os dois lados
+    }
 }
 
 function avancarPagina() {
-    if (paginaAtual < totalPaginas - 1) {
+    if (paginaAtual < totalPaginas) {
         paginaAtual++;
         atualizarDiario();
     }
@@ -33,7 +44,7 @@ function voltarPagina() {
     }
 }
 
-// ---- EVENTOS DE ARRASTAR COM O MOUSE ----
+// ---- MOVIMENTO DO MOUSE (DRAG) ----
 
 caderno.addEventListener("mousedown", (e) => {
     startX = e.clientX;
@@ -48,21 +59,21 @@ window.addEventListener("mouseup", (e) => {
     if (!isDragging) return;
     
     let endX = e.clientX;
-    let diffX = startX - endX; // Distância do movimento
+    let diffX = startX - endX;
 
-    // Se arrastou para a esquerda (mínimo de 50 pixels) -> Avança a página
-    if (diffX > 50) {
+    // Arrastou para a esquerda -> passa a folha para a esquerda
+    if (diffX > 40) {
         avancarPagina();
     } 
-    // Se arrastou para a direita (mínimo de 50 pixels) -> Volta a página
-    else if (diffX < -50) {
+    // Arrastou para a direita -> puxa a folha de volta
+    else if (diffX < -40) {
         voltarPagina();
     }
 
     isDragging = false;
 });
 
-// Suporte para telas de toque (celular/tablet)
+// Suporte para celular (Touch)
 caderno.addEventListener("touchstart", (e) => {
     startX = e.touches[0].clientX;
     isDragging = true;
@@ -73,13 +84,13 @@ caderno.addEventListener("touchend", (e) => {
     let endX = e.changedTouches[0].clientX;
     let diffX = startX - endX;
 
-    if (diffX > 50) {
+    if (diffX > 40) {
         avancarPagina();
-    } else if (diffX < -50) {
+    } else if (diffX < -40) {
         voltarPagina();
     }
     isDragging = false;
 });
 
-// Inicializa a ordem das páginas
+// Inicializa o estado do livro
 atualizarDiario();
