@@ -72,11 +72,12 @@ body {
 }
 
 .capa-imagem {
-    background-image: url('stormposter.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border: 3px solid var(--pink-border); /* borda rosa */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* evita que a imagem saia da borda */
+    border: 3px solid var(--pink-border);
+    border-radius: 0 15px 15px 0;
 }
 
 /* Contra-capa */
@@ -145,10 +146,10 @@ body {
     transform: scale(1.1);
 }
 
-/* Imagem da capa */
 .capa-foto {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover;   
+    object-position: center; 
     border-radius: 0 15px 15px 0;
 }
