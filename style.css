@@ -1,0 +1,144 @@
+:root {
+    --egyptian-blue: #1B22A6;
+    --truesky-gloxym: #9EB3FF;
+    --pink-quartz: #FFBFEC; 
+    --calcareous-sinter: #DEEDFF; 
+    --blue-titmouse: #456AFF;
+    --spring-heat: #FFFCDE; 
+    --polka-dot-blue: #BCD6FA; 
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--spring-heat);
+    background-image: 
+        radial-gradient(var(--polka-dot-blue) 15%, transparent 16%),
+        radial-gradient(var(--polka-dot-blue) 15%, transparent 16%);
+    background-size: 60px 60px;
+    background-position: 0 0, 30px 30px;
+    
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+}
+
+.diario-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.caderno {
+    position: relative;
+    width: 400px;
+    height: 550px;
+    perspective: 1500px;
+}
+
+.pagina {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+    transform-origin: left center;
+    transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    padding: 30px;
+    border-radius: 0 15px 15px 0;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.15); 
+}
+
+.face.verso {
+    transform: rotateY(180deg);
+    border-radius: 15px 0 0 15px;
+}
+
+/* NOVA CLASSE: Configuração da Capa usando Imagem JPG */
+.capa-imagem {
+    background-image: url('stormposter.jpg'); /* Nome exato da sua imagem salva na pasta */
+    background-size: cover;            /* Faz a imagem cobrir toda a capa */
+    background-position: center;        /* Centraliza o corte da imagem */
+    background-repeat: no-repeat;
+    border: 3px solid var(--egyptian-blue); /* Uma borda estilizada para emoldurar */
+}
+
+/* Estilo para as Contra-Capas (Sem linhas) */
+.contra-capa {
+    background-color: #9EB3FF); 
+    border: 1px solid rgba(27, 34, 166, 0.1);
+}
+
+/* Folhas do Diário */
+.folha-pautada {
+    background-color: var(--calcareous-sinter); 
+    background-image: linear-gradient(var(--truesky-gloxym) 1px, transparent 1px); 
+    background-size: 100% 30px;
+    line-height: 30px;
+    padding-top: 45px;
+}
+
+.folha-pautada .data {
+    display: block;
+    color: var(--blue-titmouse);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.folha-pautada textarea {
+    width: 100%;
+    height: 85%;
+    background: transparent;
+    border: none;
+    resize: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    line-height: 30px;
+    color: #222;
+}
+
+.folha-pautada textarea::placeholder {
+    color: rgba(69, 106, 255, 0.5);
+}
+
+.folha-pautada textarea:focus {
+    outline: none;
+}
+
+.pagina.virada {
+    transform: rotateY(-180deg);
+}
+
+.nav-btn {
+    background-color: var(--egyptian-blue);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 20;
+}
+
+.nav-btn:hover {
+    background-color: var(--blue-titmouse);
+    transform: scale(1.1);
+}
