@@ -228,12 +228,12 @@ body {
 }
 
 .fita-tape {
-    top: 25px;
+    top: 15px;
     left: 70px;
     width: 60px;
     opacity: 0.85; 
     transform: rotate(-5deg);
-    z-index: 3; 
+    z-index: 4; 
 }
 
 /* Nova folha do lado direito */
