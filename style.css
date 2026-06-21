@@ -315,3 +315,73 @@ video {
     transform: rotate(-4deg); 
     z-index: 2;          
 }
+.folha-scrapbook-direita .texto-diario-container {
+    top: 25px;
+    left: 25px;
+    width: 80%;
+    z-index: 10;
+}
+
+/* --- Posições da Colagem --- */
+
+/* Imagem 1 (Polaroid - Topo Direita) */
+.colagem-img1 {
+    top: 70px;
+    right: 20px;
+    left: auto;
+    width: 110px;
+    transform: rotate(6deg);
+    z-index: 2;
+}
+
+/* Imagem 2 (Foto Recortada - Centro Esquerda) */
+.colagem-img2 {
+    top: 150px;
+    left: 25px;
+    width: 115px;
+    border: 4px solid #fff;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.12);
+    transform: rotate(-8deg);
+    z-index: 3;
+}
+
+/* Imagem 3 (Polaroid - Centro Direita, ligeiramente abaixo da 1) */
+.colagem-img3 {
+    top: 210px;
+    right: 25px;
+    left: auto;
+    width: 100px;
+    transform: rotate(-4deg);
+    z-index: 1; /* Fica um pouco atrás das outras */
+}
+
+/* Imagem 4 (Foto - Baixo Esquerda) */
+.colagem-img4 {
+    bottom: 40px;
+    left: 30px;
+    width: 110px;
+    border: 3px solid #fff;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+    transform: rotate(5deg);
+    z-index: 4;
+}
+
+/* Imagem 5 (Polaroid - Baixo Direita) */
+.colagem-img5 {
+    bottom: 30px;
+    right: 20px;
+    left: auto;
+    width: 115px;
+    transform: rotate(-6deg);
+    z-index: 5; /* Fica no topo dessa área */
+}
+
+/* Fita adesiva decorativa em cima da foto 2 */
+.fita-colagem {
+    top: 140px;
+    left: 60px;
+    width: 50px;
+    opacity: 0.85;
+    transform: rotate(-15deg);
+    z-index: 6; /* Garante que a fita fique por cima da foto */
+}
