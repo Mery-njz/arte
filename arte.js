@@ -9,7 +9,7 @@ let isDragging = false;
 
 function atualizarDiario() {
     paginas.forEach((pagina, index) => {
-        // CORREÇÃO CRUCIAL: Remove o z-index fixo que estava no HTML para não travar o clique
+        // Remove o z-index fixo do HTML para o JS controlar livremente
         pagina.style.removeProperty("z-index");
 
         if (index < paginaAtual) {
@@ -23,13 +23,13 @@ function atualizarDiario() {
         }
     });
 
-    // Ajusta o alinhamento do caderno dependendo se está na capa ou aberto
+    // Ajusta o alinhamento do caderno dependendo de onde está aberto
     if (paginaAtual === 0) {
-        caderno.style.transform = "translateX(50%)"; // Centraliza a capa fechada
+        caderno.style.transform = "translateX(50%)"; // Capa fechada
     } else if (paginaAtual === totalPaginas) {
-        caderno.style.transform = "translateX(-50%)"; // Centraliza a contracapa fechada
+        caderno.style.transform = "translateX(-50%)"; // Contracapa fechada
     } else {
-        caderno.style.transform = "translateX(0%)"; // Abre centralizado mostrando os dois lados
+        caderno.style.transform = "translateX(0%)"; // Aberto no meio
     }
 }
 
@@ -64,13 +64,13 @@ window.addEventListener("mouseup", (e) => {
     let endX = e.clientX;
     let diffX = startX - endX;
 
-    // Arrastou para a esquerda -> passa a folha para a esquerda
+    // Arrastou para a esquerda -> passa a folha
     if (diffX > 40) {
         avancarPagina();
     } 
-    // Arrastou para a direita -> puxa a folha de volta
+    // Arrastou para a direita -> volta a folha
     else if (diffX < -40) {
-        back: voltarPagina();
+        voltarPagina(); // <-- Corrigido aqui! Tirei o "back:" que quebrava tudo
     }
 
     isDragging = false;
@@ -97,4 +97,3 @@ caderno.addEventListener("touchend", (e) => {
 
 // Inicializa o estado do livro
 atualizarDiario();
-
