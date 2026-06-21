@@ -1,284 +1,585 @@
 :root {
+
     --pink-quartz: #FFD6F6;    
+
     --pink-border: #FFCCE5;     
+
     --spring-heat: #FFF9F9;     
+
     --calcareous-sinter: #FFF8DC; 
+
     --line-pink: #FFCFE9;        
+
     --polka-dot-blue: #7CA9FF;  
+
 }
+
+
+
+/* Fundo com bolinhas azuis sobre rosa */
 
 body {
-    background-color: var(--pink-quartz); 
+
+    background-color: var(--pink-quartz); /* fundo rosa clarinho */
+
+    
+
+    /* Ajuste aqui: forçando a transição no mesmo ponto (15% e 15%) para a borda ficar nítida */
+
     background-image: 
+
         radial-gradient(var(--polka-dot-blue) 15%, transparent 15%),
+
         radial-gradient(var(--polka-dot-blue) 15%, transparent 15%);
+
+    
+
+    /* O tamanho do padrão (distância entre as bolinhas) */
+
     background-size: 40px 40px;
+
+    
+
+    /* O segredo para intercalar as bolinhas: a segunda camada se move metade do tamanho do background-size */
+
     background-position: 0 0, 20px 20px;
+
+    
+
     height: 100vh;
+
     margin: 0;
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    
+
+    /* Dica: se o seu site tiver muito conteúdo, mude para "auto" ou remova essa linha */
+
     overflow: hidden; 
+
 }
+
+
 
 .diario-container {
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     width: 100%;
+
     height: 100%;
-    perspective: 2000px; 
+
+    perspective: 2000px; /* Cria o efeito 3D profundo */
+
 }
+
+
+
+/* O caderno ocupa o lado direito do centro */
 
 .caderno {
+
     position: relative;
+
     width: 380px;
+
     height: 520px;
+
     transform-style: preserve-3d;
+
     cursor: grab;
+
+    /* Move o caderno ligeiramente para a direita para compensar o livro aberto */
+
     transform: translateX(50%); 
+
     transition: transform 0.5s;
+
 }
+
+
 
 .caderno:active {
+
     cursor: grabbing;
+
 }
+
+
 
 .pagina {
+
     position: absolute;
+
     width: 100%;
+
     height: 100%;
+
     top: 0;
+
     left: 0;
+
     transform-style: preserve-3d;
-    transform-origin: left center;
+
+    transform-origin: left center; /* O eixo de dobra é o meio do livro */
+
     transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+
     user-select: none;
+
 }
+
+
 
 .face {
+
     position: absolute;
+
     width: 100%;
+
     height: 100%;
+
     backface-visibility: hidden;
+
     padding: 35px 25px;
+
     box-sizing: border-box;
+
     box-shadow: inset -3px 0 5px rgba(0,0,0,0.05), 3px 3px 10px rgba(0,0,0,0.1);
+
 }
+
+
 
 /* Lado direito (Frente) */
+
 .face.frente {
+
     border-radius: 0 15px 15px 0;
+
 }
+
+
 
 /* Lado esquerdo (Verso) após virar */
+
 .face.verso {
+
     transform: rotateY(180deg);
+
     border-radius: 15px 0 0 15px;
+
     box-shadow: inset 3px 0 5px rgba(0,0,0,0.05), -3px 3px 10px rgba(0,0,0,0.1);
+
 }
+
+
 
 /* Estilização das Capas */
+
 .capa-imagem {
+
     background-color: var(--pink-quartz);
+
     border: 3px solid var(--pink-border);
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     overflow: hidden;
+
 }
+
+
 
 .capa-foto {
+
     width: 100%;
+
     height: 100%;
+
     object-fit: cover;
+
 }
+
+
 
 .contra-capa {
+
     background-color: var(--pink-quartz);
+
     border: 2px solid var(--pink-border);
+
 }
+
+
 
 /* Estilização das Folhas Internas */
+
 .folha-pautada {
+
     background-color: var(--calcareous-sinter);
+
     border: 1px solid #e5dfc5;
+
 }
+
+
 
 .folha-pautada .data {
+
     display: block;
+
     color: #A67C52;
+
     font-weight: bold;
+
     margin-bottom: 15px;
+
     font-size: 14px;
+
 }
+
+
 
 .folha-pautada textarea {
+
     width: 100%;
+
     height: 85%;
+
     background: transparent;
+
     border: none;
+
     resize: none;
+
     font-family: 'Courier New', Courier, monospace;
+
     font-size: 16px;
+
     line-height: 28px;
+
     color: #222;
-    pointer-events: none; 
+
+    pointer-events: none; /* Deixa o arrastar livre sobre o texto */
+
 }
+
+
 
 .folha-pautada textarea:focus {
+
     outline: none;
+
 }
+
+
 
 /* Classe aplicada via JS quando a página é jogada para a esquerda */
+
 .pagina.virada {
+
     transform: rotateY(-180deg);
+
 }
+
+
 
 .folha-scrapbook {
+
     background-color: var(--calcareous-sinter) !important;
-    position: absolute !important;
+
+    position: absolute !important; /* Força ela a ficar presa no topo absoluto da face */
+
     top: 0;
+
     left: 0;
+
     width: 100%;
+
     height: 100%;
-    padding: 0 !important;
+
+    padding: 0 !important; /* Tira o padding que estava quebrando o layout do caderno */
+
     overflow: visible; 
-    border-radius: 15px 0 0 15px;
+
+    border-radius: 15px 0 0 15px; /* Deixa as bordinhas esquerdas arredondadas igual ao verso do caderno */
+
     box-sizing: border-box;
+
 }
+
+
+
+/* Estilização dos textos soltos (<p>) na folha scrapbook da esquerda */
 
 .folha-scrapbook p {
+
     position: absolute;
+
     left: 25px;
+
     bottom: 30px;
+
     font-family: 'Courier New', Courier, monospace;
+
     font-size: 13px;
+
     color: #444;
+
     margin: 0;
+
     z-index: 5;
+
 }
+
+
+
+/* Caso queira separar o segundo <p> ("sos") para não ficar um por cima do outro */
 
 .folha-scrapbook p + p {
+
     bottom: 12px;
+
 }
+
+
 
 .scrap-item {
+
     position: absolute;
+
     box-sizing: border-box;
+
 }
+
+
 
 .polaroid {
+
     background: #ffffff;
+
     padding: 8px 8px 20px 8px;
+
     box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.15);
+
     top: 40px;
+
     left: 30px;
+
     width: 140px;
+
     transform: rotate(-6deg); 
+
     z-index: 2;
+
 }
+
+
 
 .polaroid img {
+
     width: 100%;
+
     display: block;
+
 }
+
+
 
 .legenda-polaroid {
+
     font-family: 'Courier New', Courier, monospace;
+
     font-size: 11px;
+
     text-align: center;
+
     margin: 8px 0 0 0 !important;
+
     color: #555;
-    position: static !important;
+
+    position: static !important; /* Garante que a legenda da polaroid não vire absolute */
+
 }
+
+
 
 .foto-recortada {
+
     top: 160px;
+
     right: 25px;
+
     width: 130px;
+
     border: 4px solid #fff; 
+
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.12);
+
     transform: rotate(4deg);
+
     z-index: 1;
+
 }
 
-.sticker-borboleta1, .sticker-borboleta {
-    top: 50px;
+
+
+.sticker-borboleta {
+
+    top: 20px;
+
     right: 40px;
+
     width: 45px;
+
     transform: rotate(-15deg);
+
     z-index: 3; 
+
 }
+
+
 
 .fita-tape {
-    top: 15px;
+
+    top: 25px;
+
     left: 70px;
+
     width: 60px;
+
     opacity: 0.85; 
+
     transform: rotate(-5deg);
-    z-index: 4; 
+
+    z-index: 3; 
+
 }
+
+
 
 /* Nova folha do lado direito */
+
 .folha-scrapbook-direita {
+
     background-color: var(--calcareous-sinter) !important;
-    position: relative !important;
+
+    position: relative !important; /* Mudado para relative para fixar as fotos absolutas dentro dela */
+
     display: block;
+
     width: 100%;
+
     height: 100%;
+
     padding: 0 !important;
+
     overflow: visible; 
+
     border-radius: 0 15px 15px 0; 
+
     border: 1px solid #e5dfc5;
+
     box-sizing: border-box;
+
 }
+
+
 
 .texto-diario-container {
+
     position: absolute;
+
     top: 25px;
+
     left: 25px;
+
     width: 180px; 
+
     font-family: 'Courier New', Courier, monospace;
+
     color: #222;
+
     z-index: 5; 
+
 }
+
+
 
 .texto-diario-container .data {
+
     display: block;
+
     color: #A67C52;
+
     font-weight: bold;
+
     margin-bottom: 15px;
+
     font-size: 14px;
+
 }
+
+
 
 .texto-puro {
+
     font-size: 16px;
+
     line-height: 28px;
+
     margin: 0;
+
 }
 
-/* 4 fotos da direita (Página do Eunhyuk) */
+
+
+/* 4 fotos da direita */
+
 .direita-foto1 {
+
     top: 150px;
+
     left: 30px;
+
     width: 110px;
+
     transform: rotate(-4deg);
+
     z-index: 2;
+
 }
+
+
 
 .direita-foto2 {
+
     top: 40px;
+
     right: 30px;
+
     width: 120px;
     border: 4px solid #fff;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.12);
     transform: rotate(6deg);
     z-index: 1;
 }
-
 .direita-foto3 {
     top: 280px;
     right: 40px;
@@ -288,7 +589,6 @@ body {
     transform: rotate(-8deg);
     z-index: 2;
 }
-
 .direita-foto4 {
     top: 320px;
     left: 40px;
@@ -296,99 +596,8 @@ body {
     transform: rotate(5deg);
     z-index: 1;
 }
-
 video {
-    width: 100%;    
-    height: auto;   
-    display: block; 
-    object-fit: cover; 
-}
-
-.nova-foto-esquerda {
-    bottom: 40px;        
-    left: 40px;         
-    width: 130px;        
-    border: 4px solid #fff; 
-    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.12);
-    transform: rotate(-4deg); 
-    z-index: 2;          
-}
-
-.folha-scrapbook-direita .texto-diario-container {
-    top: 25px;
-    left: 25px;
-    width: 80%;
-    z-index: 10;
-}
-
-/* --- REGRA DE OURO PARA CORRIGIR AS IMAGENS ESTICADAS --- */
-.polaroid img,
-.folha-scrapbook-direita img.scrap-item {
-    width: 100%;
-    height: auto !important;
-    display: block;
-}
-
-/* --- Posições da sua Nova Colagem de 5 Imagens --- */
-
-/* Imagem 1 (Polaroid - Topo Direita) */
-.colagem-img1 {
-    top: 70px;
-    right: 20px;
-    left: auto;
-    width: 110px;
-    transform: rotate(6deg);
-    z-index: 2;
-}
-
-/* Imagem 2 (Foto Recortada - Centro Esquerda) */
-.colagem-img2 {
-    top: 150px;
-    left: 25px;
-    width: 115px;
-    border: 4px solid #fff;
-    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.12);
-    transform: rotate(-8deg);
-    z-index: 3;
-}
-
-/* Imagem 3 (Polaroid - Centro Direita) */
-.colagem-img3 {
-    top: 210px;
-    right: 25px;
-    left: auto;
-    width: 100px;
-    transform: rotate(-4deg);
-    z-index: 1; 
-}
-
-/* Imagem 4 (Foto - Baixo Esquerda) */
-.colagem-img4 {
-    bottom: 40px;
-    left: 30px;
-    width: 110px;
-    border: 3px solid #fff;
-    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
-    transform: rotate(5deg);
-    z-index: 4;
-}
-
-/* Imagem 5 (Polaroid - Baixo Direita) */
-.colagem-img5 {
-    bottom: 30px;
-    right: 20px;
-    left: auto;
-    width: 115px;
-    transform: rotate(-6deg);
-    z-index: 5; 
-}
-
-/* Fita adesiva decorativa em cima da foto 2 */
-.fita-colagem {
-    top: 140px;
-    left: 60px;
-    width: 50px;
-    opacity: 0.85;
-    transform: rotate(-15deg);
-    z-index: 6; 
-}
+  max-width: 100%;  
+  height: auto;    
+  border-radius: 8px; 
+} 
