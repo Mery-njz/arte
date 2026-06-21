@@ -9,6 +9,9 @@ let isDragging = false;
 
 function atualizarDiario() {
     paginas.forEach((pagina, index) => {
+        // CORREÇÃO CRUCIAL: Remove o z-index fixo que estava no HTML para não travar o clique
+        pagina.style.removeProperty("z-index");
+
         if (index < paginaAtual) {
             // Páginas que já viraram vão para a esquerda
             pagina.classList.add("virada");
@@ -67,7 +70,7 @@ window.addEventListener("mouseup", (e) => {
     } 
     // Arrastou para a direita -> puxa a folha de volta
     else if (diffX < -40) {
-        voltarPagina();
+        back: voltarPagina();
     }
 
     isDragging = false;
@@ -94,3 +97,4 @@ caderno.addEventListener("touchend", (e) => {
 
 // Inicializa o estado do livro
 atualizarDiario();
+
