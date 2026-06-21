@@ -9,27 +9,27 @@ let isDragging = false;
 
 function atualizarDiario() {
     paginas.forEach((pagina, index) => {
-        // Remove o z-index fixo do HTML para o JS controlar livremente
+        // Garante que nenhum estilo antigo interfira
         pagina.style.removeProperty("z-index");
 
         if (index < paginaAtual) {
-            // Páginas que já viraram vão para a esquerda
+            // Páginas viradas vão para a esquerda
             pagina.classList.add("virada");
-            pagina.style.zIndex = 10 + index;
+            pagina.style.zIndex = 20 + index;
         } else {
-            // Páginas que estão na direita
+            // Páginas normais ficam na direita
             pagina.classList.remove("virada");
-            pagina.style.zIndex = totalPaginas - index;
+            pagina.style.zIndex = 20 + (totalPaginas - index);
         }
     });
 
-    // Ajusta o alinhamento do caderno dependendo de onde está aberto
+    // Centralização do caderno na tela
     if (paginaAtual === 0) {
-        caderno.style.transform = "translateX(50%)"; // Capa fechada
+        caderno.style.transform = "translateX(50%)";
     } else if (paginaAtual === totalPaginas) {
-        caderno.style.transform = "translateX(-50%)"; // Contracapa fechada
+        caderno.style.transform = "translateX(-50%)";
     } else {
-        caderno.style.transform = "translateX(0%)"; // Aberto no meio
+        caderno.style.transform = "translateX(0%)";
     }
 }
 
@@ -47,8 +47,7 @@ function voltarPagina() {
     }
 }
 
-// ---- MOVIMENTO DO MOUSE (DRAG) ----
-
+// ---- MOVIMENTOS (MOUSE) ----
 caderno.addEventListener("mousedown", (e) => {
     startX = e.clientX;
     isDragging = true;
@@ -64,19 +63,16 @@ window.addEventListener("mouseup", (e) => {
     let endX = e.clientX;
     let diffX = startX - endX;
 
-    // Arrastou para a esquerda -> passa a folha
     if (diffX > 40) {
         avancarPagina();
-    } 
-    // Arrastou para a direita -> volta a folha
-    else if (diffX < -40) {
-        voltarPagina(); // <-- Corrigido aqui! Tirei o "back:" que quebrava tudo
+    } else if (diffX < -40) {
+        voltarPagina();
     }
 
     isDragging = false;
 });
 
-// Suporte para celular (Touch)
+// ---- MOVIMENTOS (CELULAR) ----
 caderno.addEventListener("touchstart", (e) => {
     startX = e.touches[0].clientX;
     isDragging = true;
@@ -95,5 +91,10 @@ caderno.addEventListener("touchend", (e) => {
     isDragging = false;
 });
 
-// Inicializa o estado do livro
+// Inicialização
 atualizarDiario();
+
+
+
+
+
