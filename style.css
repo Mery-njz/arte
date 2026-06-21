@@ -209,8 +209,8 @@ body {
     z-index: 1;
 }
 
-.sticker-borboleta {
-    top: 20px;
+.sticker-borboleta1 {
+    top: 50px;
     right: 40px;
     width: 45px;
     transform: rotate(-15deg);
